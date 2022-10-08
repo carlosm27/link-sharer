@@ -17,7 +17,7 @@ export default function Form() {
 
         const JSONdata = JSON.stringify(data)
 
-        const endpoint = 'http://localhost:8080/link'
+        const endpoint = 'https://serverlinktelbot-production.up.railway.app/link'
 
         const options = {
             method: 'POST',
@@ -35,7 +35,7 @@ export default function Form() {
         const result = await response.json()
         alert(`Is this your Chat ID: ${result.data.chatId}`)
 
-        console.log("Data submiting...")
+      
 
         
         
