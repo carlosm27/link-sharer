@@ -15,8 +15,8 @@ export default function Form() {
         
 
         const data = {
-            link : link,
-            chatId : chatId,
+            Url : link,
+            chatID : chatId,
         }
 
         const JSONdata = JSON.stringify(data)
