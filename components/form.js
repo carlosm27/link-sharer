@@ -9,10 +9,14 @@ export default function Form() {
         
 
         event.preventDefault()
+        
+        const link = event.target.link.value;
+        const chatId = Number(event.target.chatId.value)
+        
 
         const data = {
-            link : event.target.link.value,
-            chatId : event.target.chatId.value,
+            link : link,
+            chatId : chatId,
         }
 
         const JSONdata = JSON.stringify(data)
@@ -33,7 +37,7 @@ export default function Form() {
         const response = await fetch(endpoint, options)
 
         const result = await response.json()
-        alert(`Is this your Chat ID: ${result.data.chatId}`)
+        alert(`This the data you will send: ${result.data.chatId}`)
 
       
 
