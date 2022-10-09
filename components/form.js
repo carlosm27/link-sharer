@@ -14,7 +14,6 @@ export default function Form() {
     const handleSubmit = async (event) => {
 
         
-
         event.preventDefault()
         
 
@@ -36,11 +35,11 @@ export default function Form() {
         const response = await fetch(endpoint, options)
 
         const result = await response.json()
-        alert(`This the data you will send: ${result.data}`)
+        alert(`This the data you will send: ${data}`)
         
         setData({
             Url:"",
-            ChatID:null,
+            ChatID:"",
         });
       
         
