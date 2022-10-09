@@ -56,8 +56,8 @@ export default function Form() {
 
                 </div>
                 <div class="column">
-                    <label class="theLabels" htmlFor="chatId">ChatId: </label>
-                    <input class="theInputs" type="text"  id="chatId" name="chatId" required value={ChatID} onChange={(e) => setData({...data, ChatID: Number(e.target.value)})}  />
+                    <label class="theLabels" htmlFor="chatId">Chat ID: </label>
+                    <input class="theInputs" type="text"  id="chatId" name="chatId" required value={ChatID} onChange={(e) => setData({...data, ChatID: Number(e.target.value) || ""})}  />
                 </div>
             </div>
             <button onClick={handleSubmit} type="submit">Submit</button>
