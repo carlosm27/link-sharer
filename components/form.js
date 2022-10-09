@@ -35,7 +35,7 @@ export default function Form() {
         const response = await fetch(endpoint, options)
 
         const result = await response.json()
-        alert(`This the data you will send: ${data}`)
+        alert(`This is the  link:${data.Url} you will send to this ChatId:${data.ChatID}`) 
         
         setData({
             Url:"",
@@ -57,7 +57,7 @@ export default function Form() {
                 </div>
                 <div class="column">
                     <label class="theLabels" htmlFor="chatId">ChatId: </label>
-                    <input class="theInputs" type="text"  id="chatId" name="chatId" required onChange={(e) => setData({...data, ChatID: Number(e.target.value)})}  />
+                    <input class="theInputs" type="text"  id="chatId" name="chatId" required value={ChatID} onChange={(e) => setData({...data, ChatID: Number(e.target.value)})}  />
                 </div>
             </div>
             <button onClick={handleSubmit} type="submit">Submit</button>
