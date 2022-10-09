@@ -3,6 +3,13 @@
 
 export default function Form() {
     
+    const [data, setData] = useState({
+        Url: "",
+        ChatID: Number,
+    });
+    
+    const {Url, ChatID} = data;
+    
 
     const handleSubmit = async (event) => {
 
@@ -10,14 +17,6 @@ export default function Form() {
 
         event.preventDefault()
         
-        const link = event.target.link.value;
-        const chatId = Number(event.target.chatId.value)
-        
-
-        const data = {
-            Url : link,
-            chatID : chatId,
-        }
 
         const JSONdata = JSON.stringify(data)
 
@@ -37,11 +36,13 @@ export default function Form() {
         const response = await fetch(endpoint, options)
 
         const result = await response.json()
-        alert(`This the data you will send: ${result.data.chatId}`)
-
-      
-
+        alert(`This the data you will send: ${result.data}`)
         
+        setData({
+            Url:"",
+            ChatID:null,
+        });
+      
         
     };
 
@@ -51,16 +52,16 @@ export default function Form() {
         <form onSubmit={handleSubmit}>
             <div class="form-container">
                 <div class="column">
-                    <label class="theLabels" htmlFor="link">Link: </label>
-                    <input class="theInputs" type="text"  id="link" name="link" required />
+                    <label class="theLabels" htmlFor="url">URL: </label>
+                    <input class="theInputs" type="text"  id="url" name="url" required value={Url} onChange={(e) => setData({...data, Url: e.target.value})}/>
 
                 </div>
                 <div class="column">
                     <label class="theLabels" htmlFor="chatId">ChatId: </label>
-                    <input class="theInputs" type="text"  id="chatId" name="chatId" required />
+                    <input class="theInputs" type="text"  id="chatId" name="chatId" required value={ChatID} onChange={(e) => setData({...data, ChatID: Number(e.target.value)})}  />
                 </div>
             </div>
-            <button type="submit">Submit</button>
+            <button onClick={handleSubmit} type="submit">Submit</button>
 
         </form>
     )
