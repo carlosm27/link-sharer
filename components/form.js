@@ -5,7 +5,7 @@ export default function Form() {
     
     const [data, setData] = useState({
         Url: "",
-        ChatID: Number,
+        ChatID: "",
     });
     
     const {Url, ChatID} = data;
@@ -57,7 +57,7 @@ export default function Form() {
                 </div>
                 <div class="column">
                     <label class="theLabels" htmlFor="chatId">ChatId: </label>
-                    <input class="theInputs" type="text"  id="chatId" name="chatId" required value={ChatID} onChange={(e) => setData({...data, ChatID: Number(e.target.value)})}  />
+                    <input class="theInputs" type="text"  id="chatId" name="chatId" required onChange={(e) => setData({...data, ChatID: Number(e.target.value)})}  />
                 </div>
             </div>
             <button onClick={handleSubmit} type="submit">Submit</button>
