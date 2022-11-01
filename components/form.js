@@ -19,7 +19,7 @@ export default function Form() {
 
         const JSONdata = JSON.stringify(data)
 
-        const endpoint = 'https://serverlinktelbot-production.up.railway.app/link'
+        const endpoint = 'https://righteous-observation-production.up.railway.app//link'
 
         const options = {
             method: 'POST',
